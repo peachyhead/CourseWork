@@ -8,7 +8,7 @@
 #include "Student.h"
 
 Student::Student(){
-    _name = "Anonymous";
+    Name = "Anonymous";
     next = nullptr;
     prev = nullptr;
     _attendmentCount = 0;
@@ -16,7 +16,7 @@ Student::Student(){
 }
 
 Student::Student(string name){
-    _name = name;
+    Name = name;
     next = nullptr;
     prev = nullptr;
     _attendmentCount = 0;
@@ -44,9 +44,19 @@ void Student::Attend(Date date) {
     _attendmentCount += 1;
 }
 
+bool Student::Attended(Date date){
+    bool result = false;
+    
+    for (int i = 0; i < _attendmentCount; i++)
+        if (_attendments[i].IsEqual(date))
+            result = true;
+    
+    return result;
+}
+
 string Student::ShowAttendments(){
     stringstream result;
-    result << "Attendments of " << _name << ":" << endl;
+    result << "Attendments of " << Name << ":" << endl;
     for(int i = 0; i < _attendmentCount; i++){
         result << _attendments[i].Assemble() << endl;
     }

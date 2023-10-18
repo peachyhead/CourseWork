@@ -22,6 +22,7 @@ public:
     ~Group();
     
     void Attend(Date date);
+    string Attendments(Date date);
     void AddMember(Student* student);
 };
 

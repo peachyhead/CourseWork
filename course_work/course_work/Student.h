@@ -18,16 +18,17 @@ class Student {
 public:
     Student* next;
     Student* prev;
+    string Name;
     
     Student();
     Student(string name);
     ~Student();
     
     void Attend(Date date);
+    bool Attended(Date date);
     string ShowAttendments();
     
 private:
-    string _name;
     int _attendmentCount;
     Date* _attendments;
 };

@@ -47,3 +47,21 @@ void Group::Attend(Date date){
         iterated = true;
     }
 }
+
+string Group::Attendments(Date date){
+    Student* enumerator = _front;
+    bool iterated = false;
+    stringstream resultStream;
+    
+    resultStream << "Attendments for " << date.Assemble() << ":" << endl;
+    
+    while (!iterated || enumerator != _front) {
+        enumerator = enumerator->next;
+        if (enumerator->Attended(date))
+            resultStream << enumerator->Name << endl;
+        iterated = true;
+    }
+    resultStream << endl;
+    
+    return resultStream.str();
+}

@@ -14,11 +14,11 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    Student* student2 = new Student("Gleb");
-    Student* student3 = new Student("Alex");
-    Student* student4 = new Student("Daniil");
-    Student* student5 = new Student("Kirill");
-    Student* student6 = new Student("Dmitry");
+    Student* gleb = new Student("Gleb");
+    Student* alex = new Student("Alex");
+    Student* dan = new Student("Dan");
+    Student* kirill = new Student("Kirill");
+    Student* dmitry = new Student("Dmitry");
     
     Date* mathLesson = new Date(22, 4, 10, 15);
     Date* englishLesson = new Date(23, 4, 8, 30);
@@ -29,16 +29,14 @@ int main(int argc, const char * argv[]) {
     Group* group1 = new Group();
     Group* group2 = new Group();
 
-    group1->AddMember(student2);
-    group1->AddMember(student6);
+    group1->AddMember(gleb);
+    group1->AddMember(dmitry);
+    group2->AddMember(dan);
+    group2->AddMember(kirill);
     
-    group2->AddMember(student3);
-    group2->AddMember(student4);
-    group2->AddMember(student5);
-    
-    student2->Attend(*mathLesson);
-    student5->Attend(*mathLesson);
-    student6->Attend(*mathLesson);
+    gleb->Attend(*mathLesson);
+    kirill->Attend(*mathLesson);
+    dmitry->Attend(*mathLesson);
     
     group1->Attend(*englishLesson);
     group1->Attend(*programLesson);
@@ -46,12 +44,16 @@ int main(int argc, const char * argv[]) {
     
     group2->Attend(*programLesson);
     group2->Attend(*chemistryLesson);
+    
+    group2->AddMember(alex);
+    
     group2->Attend(*englishLesson);
     
-    cout << student2->ShowAttendments();
-    cout << student3->ShowAttendments();
-    cout << student4->ShowAttendments();
-    cout << student5->ShowAttendments();
-    cout << student6->ShowAttendments();
+    cout << gleb->ShowAttendments();
+    cout << group2->Attendments(*programLesson);
+    cout << alex->ShowAttendments();
+    cout << dan->ShowAttendments();
+    cout << kirill->ShowAttendments();
+    cout << dmitry->ShowAttendments();
     return 0;
 }

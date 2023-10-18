@@ -27,6 +27,7 @@ public:
     ~Date();
     
     string Assemble();
+    bool IsEqual(Date date);
 };
 
 #endif /* Date_hpp */

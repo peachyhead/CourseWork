@@ -30,3 +30,10 @@ string Date::Assemble(){
 Date::~Date(){
     
 }
+
+bool Date::IsEqual(Date date){
+    return date._day == _day && 
+    date._hour == _hour && 
+    date._month == _month &&
+    date._minute == _minute;
+}
