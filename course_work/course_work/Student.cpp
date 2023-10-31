@@ -8,27 +8,24 @@
 #include "Student.h"
 
 Student::Student(){
-    Name = "Anonymous";
-    next = nullptr;
-    prev = nullptr;
+    firstName = "Anonymous";
+    firstName = "Anonymous";
     _attendmentCount = 0;
     _attendments = new Date[_attendmentCount];
 }
 
-Student::Student(string name){
-    Name = name;
-    next = nullptr;
-    prev = nullptr;
+Student::Student(string firstName, string lastName){
+    this->firstName = firstName;
+    this->lastName = lastName;
     _attendmentCount = 0;
     _attendments = new Date[_attendmentCount];
 }
 
 Student::~Student(){
-    next = nullptr;
-    prev = nullptr;
+    
 }
 
-void Student::Attend(Date date) {
+void Student::attend(Date date) {
     size_t newSize = (_attendmentCount + 1) * sizeof(Date);
 
     Date* changed = (Date*)malloc(newSize);
@@ -44,23 +41,45 @@ void Student::Attend(Date date) {
     _attendmentCount += 1;
 }
 
-bool Student::Attended(Date date){
+bool Student::isAttended(Date date){
     bool result = false;
     
     for (int i = 0; i < _attendmentCount; i++)
-        if (_attendments[i].IsEqual(date))
+        if (_attendments[i].isEqual(date))
             result = true;
     
     return result;
 }
 
-string Student::ShowAttendments(){
+int Student::getAttendances() {
+    return _attendmentCount;
+}
+
+string Student::showAttendments(){
     stringstream result;
-    result << "Attendments of " << Name << ":" << endl;
+    result << "Attendments of " << firstName << ":" << endl;
     for(int i = 0; i < _attendmentCount; i++){
-        result << _attendments[i].Assemble() << endl;
+        result << _attendments[i].toString() << endl;
     }
     result << endl;
     
     return result.str();
+}
+
+void Student::setGroup(string groupName) {
+    group = groupName;
+}
+
+string Student::getGroup() {
+    return group;
+}
+
+string Student::toString() {
+    return firstName + " " + lastName;
+}
+
+bool Student::isEqual(Student student) {
+    return  student.firstName == firstName &&
+            student.lastName == lastName &&
+            student.group == group;
 }

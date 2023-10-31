@@ -16,17 +16,27 @@ using namespace std;
 
 class Student {
 public:
-    Student* next;
-    Student* prev;
-    string Name;
+    string group;
+    string firstName;
+    string lastName;
     
     Student();
-    Student(string name);
+    Student(string firstName, string lastName);
     ~Student();
     
-    void Attend(Date date);
-    bool Attended(Date date);
-    string ShowAttendments();
+    void setGroup(string groupName);
+    void attend(Date date);
+
+    bool isAttended(Date date);
+    bool isEqual(Student student);
+    string showAttendments();
+    int getAttendances();
+    string getGroup();
+    string toString();
+
+    bool operator ==(Student* student){
+        return isEqual(*student);
+    }
     
 private:
     int _attendmentCount;

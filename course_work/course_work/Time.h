@@ -1,12 +1,12 @@
 //
-//  Date.hpp
+//  Time.h
 //  course_work
 //
 //  Created by Vasily Chalov on 12.10.2023.
 //
 
-#ifndef Date_hpp
-#define Date_hpp
+#ifndef Time_h
+#define Time_h
 
 #include <stdio.h>
 #include <iostream>
@@ -14,18 +14,18 @@
 
 using namespace std;
 
-class Date {
+class Time {
 private:
-    int _day;
-    int _month;
+    int _hour;
+    int _minute;
     
 public:
-    Date();
-    Date(int month, int day);
-    ~Date();
+    Time();
+    Time(int hour, int minute);
+    ~Time();
     
     string toString();
-    bool isEqual(Date date);
+    bool isEqual(Time time);
 };
 
-#endif /* Date_hpp */
+#endif /* Time_h */
