@@ -10,6 +10,9 @@
 
 #include "Node.hpp"
 #include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 template <typename T>
 class List {
@@ -17,124 +20,100 @@ public:
     List() {
         _front = nullptr;
         _back = nullptr;
-        _items = new Node<T>[1];
         _count = 0;
     }
-    
-    ~List() {
-        delete _front;
-        delete _back;
-        delete _items;
+
+    ~List(){
+        Node<T>* q = _back;
+        while(q != nullptr){
+            Node<T>* nextNode = q->next;
+            delete q;
+            q = nextNode;
+        }
+
     }
-    
+
     void add(T* value);
     void remove(T* value);
     bool isEmpty();
     void swap(int index1, int index2);
     int getCount();
+    Node<T>* getBack();
     
     T& operator[](size_t index) {
-        return *_items[index].data;
+        Node<T>* q;
+        int iter = 0;
+        for (q = getBack(); q != nullptr; q = q->next)
+        {
+            if (iter == index)
+                return *q->data;
+            
+            iter++;
+        }
+        
+        return *q->data;
     }
-    
+
 private:
     Node<T>* _front;
     Node<T>* _back;
-    
+
     int _count;
-    Node<T>* _items;
 };
 
 template <typename T>
 void List<T>::add(T* value) {
     Node<T>* newNode = new Node<T>(value);
-    if (isEmpty()) {
+
+    if (!_back) {
         _front = newNode;
         _back = newNode;
-        newNode->next = newNode;
-        newNode->prev = newNode;
     }
     else {
-        newNode->next = _front;
-        newNode->prev = _back;
-        _back->next = newNode;
-        _front->prev = newNode;
-        _back = newNode;
+        newNode->prev = _front;
+        _front->next = newNode;
+        _front = newNode;
     }
 
-    int newSize = _count + 1;
-    Node<T>* newItems = new Node<T>[newSize];
-    for (int i = 0; i < _count; ++i) {
-        // Create a new node and copy the data from the old node
-        newItems[i].data = new T(*_items[i].data);
-    }
-
-    // Create a new node and copy the data from the new node
-    newItems[_count].data = new T(*newNode->data);
-
-    // Deallocate the old memory
-    for (int i = 0; i < _count; ++i) {
-        //delete _items[i].data;
-    }
-    delete[] _items;
-
-    // Update _items and _count
-    _items = newItems;
-    _count = newSize;
+    _count++;
 }
 
 template <typename T>
 void List<T>::remove(T* value) {
-    for (int i = 0; i < _count; i++) {
-        Node<T>* currentNode = &_items[i];
-        if (currentNode->data != value) {
-            currentNode = currentNode->next;
+
+    Node<T>* q;
+    for (q = _back; q != nullptr; q = q->next)
+    {
+        if (q->data != value)
             continue;
+
+        if (q == _back){
+            _back = q->next;
         }
 
-        Node<T>* nextNode = currentNode->next;
-        Node<T>* prevNode = currentNode->prev;
-
-        if (currentNode == _front)
-            _front = nextNode;
-
-        if (currentNode == _back)
-            _back = prevNode;
-
-        if (nextNode)
-            nextNode->prev = prevNode;
-
-        if (prevNode)
-            prevNode->next = nextNode;
-
-        // Deallocate the memory
-        delete currentNode->data;
-        //delete currentNode;
-
-        // Update the _items array
-        int indexToRemove = -1;
-        for (int i = 0; i < _count; ++i) {
-            if (&_items[i] == currentNode) { // Compare addresses
-                indexToRemove = i;
-                break;
-            }
+        if (q->next){
+            q->next->prev = q->prev;
         }
-        
-        if (indexToRemove >= 0) {
-            // Shift elements to remove the deleted node
-            for (int i = indexToRemove; i < _count - 1; ++i) {
-                _items[i] = _items[i + 1];
-            }
-            _count -= 1;
+        if (q->prev){
+            q->prev->next = q->next;
         }
-
-        currentNode = nextNode;
+        break;
     }
+
+    if (q == nullptr)
+    {
+        cout << "No item found!" << endl;
+        return;
+    }
+
+    delete q;
 }
 
 template <typename T>
 void List<T>::swap(int index1, int index2) {
-    if (index1 < 0 || index2 < 0 || 
+
+
+    if (index1 < 0 || index2 < 0 ||
         index1 >= _count || index2 >= _count) {
         return;
     }
@@ -143,50 +122,55 @@ void List<T>::swap(int index1, int index2) {
         return;
     }
 
-    Node<T>* node1 = &_items[index1];
-    Node<T>* node1Next = node1->next;
-    Node<T>* node1Prev = node1->prev;
+    Node<T> *node1, *node2;
 
-    Node<T>* node2 = &_items[index2];
-    Node<T>* node2Next = node2->next;
-    Node<T>* node2Prev = node2->prev;
+    Node<T>* q;
+    int i = 0;
+    int foundFlag = 0;
+    for (q = _back; q != nullptr; q = q->next){
 
-    if (node1 == _front) {
-        _front = node2;
-    } else if (node2 == _front) {
-        _front = node1;
+        if (foundFlag == 2)
+            break;
+
+        if (i == index1){
+            node1 = q;
+            foundFlag++;
+        }
+        else if (i == index2){
+            node2 = q;
+            foundFlag++;
+        }
+
+        i++;
     }
 
-    if (node1 == _back) {
+    if (node1 == _back)
         _back = node2;
-    } else if (node2 == _back) {
+    else if (node2 == _back)
         _back = node1;
+    if (node1 == _front)
+        _front = node2;
+    else if (node2 == _front)
+        _front = node1;
+
+    Node<T>* temp = node1->next;
+    node1->next = node2->next;
+    node2->next = temp;
+
+    if (node1->next)
+        node1->next->prev = node1;
+    if (node2->next)
+        node2->next->prev = node2;
+
+    temp = node1->prev;
+    node1->prev = node2->prev;
+    node2->prev = temp;
+
+    if(node1->prev){
+        node1->prev->next = node1;
     }
-
-    if (node1 && node2) {
-        Node<T>* temp = node1;
-
-        if (node1Prev) {
-            node1Prev->next = node2;
-        }
-        if (node1Next) {
-            node1Next->prev = node2;
-        }
-
-        if (node2Prev) {
-            node2Prev->next = node1;
-        }
-        if (node2Next) {
-            node2Next->prev = node1;
-        }
-
-        node1->data = node2->data;
-        node1->next = node2->next;
-        node1->prev = node2->prev;
-
-        node2->data = temp->data;
-        node2->next = node1->next;
-        node2->prev = node1->prev;
+    if (node2->prev){
+        node2->prev->next = node2;
     }
 }
 
@@ -198,6 +182,11 @@ bool List<T>::isEmpty(){
 template <typename T>
 int List<T>::getCount() {
     return _count;
+}
+
+template <typename T>
+Node<T>* List<T>::getBack() {
+    return _back;
 }
 
 #endif /* List_hpp */

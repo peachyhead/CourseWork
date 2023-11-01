@@ -5,100 +5,124 @@
 //  Created by Vasily Chalov on 30.10.2023.
 //
 
+#include <cstring>
+
 #include "Faculty.hpp"
 
 Faculty::Faculty() {
-    
+
 }
 
 Faculty::~Faculty() {
-    
+
 }
 
 void Faculty::addStudent(Student* student) {
     _students.add(student);
-    _students.swap(0, _students.getCount() - 1);
 }
 
-bool Faculty::removeStudent(string firstName, string lastName) {
+bool Faculty::removeStudent(const char* firstName, const char* lastName) {
     Student* requiredStudent = getStudent(firstName, lastName);
-    
+
     if (requiredStudent == nullptr) return false;
+
     _students.remove(requiredStudent);
-    
     return true;
 }
 
-bool Faculty::addStudentToGroup(string firstName, string lastName, string group) {
+bool Faculty::addStudentToGroup(const char* firstName, const char* lastName, const char* group) {
     Student* requiredStudent = getStudent(firstName, lastName);
-    
+
     if (requiredStudent == nullptr) return false;
+
     requiredStudent->setGroup(group);
-    
     return true;
 }
 
-bool Faculty::attendStudent(string firstName, string lastName, Date date) {
+bool Faculty::attendStudent(char* firstName, char* lastName, Date date) {
     Student* requiredStudent = getStudent(firstName, lastName);
-    
+
     if (requiredStudent == nullptr) return false;
-    requiredStudent->attend(date);
     
+    requiredStudent->attend(date);
     return true;
 }
 
-void Faculty::attendGroup(string group, Date date) {
+void Faculty::attendGroup(char* group, Date date) {
     for (int i = 0; i < _students.getCount(); i++) {
-        if (_students[i].getGroup() == group)
-            _students[i].attend(date);
+        Student* student = &_students[i];
+        if (strcmp(student->group, group) == 0)
+            student->attend(date);
     }
 }
 
-string Faculty::showAttendees(Date date) {
-    stringstream studentStream;
-    studentStream << "+----------------+----------------+----------------+----------------+" << endl;
-    studentStream << "+----------------+ Attendments for:      " << date.toString() << "      +----------------+" << endl;
-    studentStream << "+----------------+----------------+----------------+----------------+" << endl;
-    studentStream << "| First Name     | Last Name      | Group          | Attendances    |" << endl;
-    studentStream << "+----------------+----------------+----------------+----------------+" << endl;
-    
-    
-    
+void Faculty::showAttendees(Date date) {
+
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    cout << "|----------------| Attendments for:      " << date.toString() << "      |----------------|" << endl;
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    cout << "| First Name     | Last Name      | Group          | Attendances    |" << endl;
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+
     for (int i = 0; i < _students.getCount(); i++) {
         Student student = _students[i];
         if (!student.isAttended(date)) continue;
-        studentStream << "| " << left << setw(15) << student.firstName <<
-                         "| " << left << setw(15) << student.lastName <<
-                         "| " << left << setw(15) << student.group <<
-                         "| " << left << setw(15) << student.getAttendances() << "|" << endl;
-        studentStream << "+----------------+----------------+----------------+----------------+" << endl;
+        cout << "| " << left << setw(15) << student.firstName <<
+                "| " << left << setw(15) << student.lastName <<
+                "| " << left << setw(15) << student.group <<
+                "| " << left << setw(15) << student.getAttendances() << "|" << endl;
+        cout << "+----------------+----------------+----------------+----------------+" << endl;
     }
-    return studentStream.str();
 }
 
-string Faculty::showStudents() {
-    stringstream studentStream;
-    studentStream << "+----------------+----------------+----------------+----------------+" << endl;
-    studentStream << "+----------------+       Faculty's students:       +----------------+" << endl;
-    studentStream << "+----------------+----------------+----------------+----------------+" << endl;
-    studentStream << "| First Name     | Last Name      | Group          | Attendances    |" << endl;
-    studentStream << "+----------------+----------------+----------------+----------------+" << endl;
+void Faculty::showStudents() {
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    cout << "|----------------|       Faculty's students:       |----------------|" << endl;
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    cout << "| First Name     | Last Name      | Group          | Attendances    |" << endl;
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
 
-    for (int i = 0; i < _students.getCount(); i++) {
-        Student student = _students[i];
-        studentStream << "| " << left << setw(15) << student.firstName <<
-                         "| " << left << setw(15) << student.lastName <<
-                         "| " << left << setw(15) << student.group <<
-                         "| " << left << setw(15) << student.getAttendances() << "|" << endl;
-        studentStream << "+----------------+----------------+----------------+----------------+" << endl;
+    Node<Student>* q = _students.getBack();
+    while(q != nullptr)
+    {
+        Student* student = q->data;
+
+        cout << "| " << left << setw(15) << student->firstName <<
+                "| " << left << setw(15) << student->lastName <<
+                "| " << left << setw(15) << student->group <<
+                "| " << left << setw(15) << student->getAttendances() << "|" << endl;
+        cout << "+----------------+----------------+----------------+----------------+" << endl;
+        q = q->next;
     }
-    return studentStream.str();
+}
+
+void Faculty::showStudent(char *firstName, char *lastName) {
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    cout << "|----------------|          Student info:          |----------------|" << endl;
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    cout << "| First Name     | Last Name      | Group          | Attendances    |" << endl;
+    cout << "+----------------+----------------+----------------+----------------+" << endl;
+    
+    Node<Student>* q = _students.getBack();
+    while(q != nullptr)
+    {
+        Student* student = q->data;
+        q = q->next;
+        if (strcmp(student->firstName, firstName) != 0 ||
+            strcmp(student->lastName, lastName) != 0) continue;
+
+        cout << "| " << left << setw(15) << student->firstName <<
+                "| " << left << setw(15) << student->lastName <<
+                "| " << left << setw(15) << student->group <<
+                "| " << left << setw(15) << student->getAttendances() << "|" << endl;
+        cout << "+----------------+----------------+----------------+----------------+" << endl;
+    }
 }
 
 void Faculty::sortAlphabetically() {
     while (!isSortedAlphabetically()) {
         for (int i = 0; i < _students.getCount() - 1; i++) {
-            
+
         }
     }
 }
@@ -112,7 +136,7 @@ void Faculty::sortByAttendments() {
                 min = i;
             }
         }
-        
+
         _students.swap(min, bound);
         bound += 1;
     }
@@ -120,7 +144,7 @@ void Faculty::sortByAttendments() {
 
 bool Faculty::isSortedAlphabetically() {
     for (int i = 0; i < _students.getCount() - 1; i++) {
-        if (_students[i].firstName > _students[i + 1].firstName)
+        if (strcmp(_students[i].firstName, _students[i + 1].firstName) < 0)
             return false;
     }
     return true;
@@ -135,13 +159,20 @@ bool Faculty::isSortedByAttendments() {
     return true;
 }
 
-Student* Faculty::getStudent(string firstName, string lastName) {
+Student* Faculty::getStudent(const char* firstName, const char* lastName) {
     Student* requiredStudent = nullptr;
-    for (int i = 0; i < _students.getCount(); i++) {
-        if (_students[i].firstName == firstName &&
-            _students[i].lastName == lastName)
-            requiredStudent = &_students[i];
+
+    Node<Student>* q;
+    for(q = _students.getBack(); q != nullptr; q = q->next)
+    {
+        Student* s = q->data;
+        if (strcmp(s->firstName, firstName) == 0 &&
+            strcmp(s->lastName, lastName) == 0)
+            {
+                requiredStudent = s;
+                break;
+            }
     }
-    
+
     return requiredStudent;
 }

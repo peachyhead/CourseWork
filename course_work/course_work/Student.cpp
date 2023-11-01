@@ -8,13 +8,19 @@
 #include "Student.h"
 
 Student::Student(){
+    group = new char[1];
+    
     firstName = "Anonymous";
     firstName = "Anonymous";
+    
     _attendmentCount = 0;
     _attendments = new Date[_attendmentCount];
 }
 
-Student::Student(string firstName, string lastName){
+Student::Student(char* firstName, char* lastName){
+    group = new char[1];
+    group[0] = '\0';
+    
     this->firstName = firstName;
     this->lastName = lastName;
     _attendmentCount = 0;
@@ -55,27 +61,42 @@ int Student::getAttendances() {
     return _attendmentCount;
 }
 
-string Student::showAttendments(){
-    stringstream result;
-    result << "Attendments of " << firstName << ":" << endl;
-    for(int i = 0; i < _attendmentCount; i++){
-        result << _attendments[i].toString() << endl;
-    }
-    result << endl;
+char* Student::showAttendments() {
+    size_t totalLength = strlen("Attendments of ") + 
+    strlen(firstName) + strlen(":") + strlen("\n");
     
-    return result.str();
+    for (int i = 0; i < _attendmentCount; i++) {
+        totalLength += strlen(_attendments[i].toString()) + 
+        strlen("\n");
+    }
+    
+    char* result = new char[totalLength + 1];
+
+    strcpy(result, "Attendments of ");
+    strcat(result, firstName);
+    strcat(result, ":\n");
+    for (int i = 0; i < _attendmentCount; i++) {
+        strcat(result, _attendments[i].toString());
+        strcat(result, "\n");
+    }
+
+    return result;
 }
 
-void Student::setGroup(string groupName) {
-    group = groupName;
+
+void Student::setGroup(const char* groupName) {
+    if (group)
+        delete[] group;
+
+    group = strdup(groupName);
 }
 
-string Student::getGroup() {
-    return group;
-}
+char* Student::toString() {
+    char buffer[100];
 
-string Student::toString() {
-    return firstName + " " + lastName;
+    snprintf(buffer, sizeof(buffer), "%s %s", firstName, lastName);
+
+    return strdup(buffer);
 }
 
 bool Student::isEqual(Student student) {

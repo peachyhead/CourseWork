@@ -7,15 +7,158 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E67AE27A-E491-4B61-B4E3-9AD47A498707"
+            uuid = "7FE5DC19-8128-4C28-AF42-2D82C2DBE550"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/utils/List.hpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "operator[](index)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ECF82337-6AE9-4931-B129-4C635E37F535"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Student.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "Student::attend(date)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ECF82337-6AE9-4931-B129-4C635E37F535 - 8da6c804e2257131"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Student::attend(Date)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Student.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "ECF82337-6AE9-4931-B129-4C635E37F535 - 8da6c804e2257016"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Student::attend(Date)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Student.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "72D721E3-5D99-483B-AD56-9C4D8425FF7C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "course_work/Faculty.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "Faculty::attendGroup(group, date)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA248D8C-2D9C-46BC-86C5-B159F6688009"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "Faculty::attendGroup(group, date)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BA248D8C-2D9C-46BC-86C5-B159F6688009 - a27502515ce3db3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Faculty::attendGroup(char*, Date)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Faculty.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "BA248D8C-2D9C-46BC-86C5-B159F6688009 - a27502515ce3d92"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Faculty::attendGroup(char*, Date)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Faculty.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "BA248D8C-2D9C-46BC-86C5-B159F6688009 - a27502515ce3db3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Faculty::attendGroup(char*, Date)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Faculty.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EBF22AC-1BC3-46FA-871C-5AE8E1DA4713"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "Faculty::addStudent(student)"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,17 +166,225 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B672CAB8-5B26-4DC9-91B4-49F7D277F214"
+            uuid = "980F8681-1106-40F3-A6BE-3B94A9C97A5D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "course_work/utils/List.hpp"
+            filePath = "course_work/MenuRunner.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "swap(index1, index2)"
-            landmarkType = "9">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "MenuRunner::subBtn1(symbol)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BFAE577-9E9A-48FA-8BEC-ABEAA7736D09"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/MenuRunner.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "MenuRunner::subBtn1(symbol)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "486563F9-86D7-4F28-97DD-96D1E1697C29"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "Faculty::showStudents()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE9B00D5-9A9B-40BC-A22E-D8F74BFF1316"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "Faculty::showStudents()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EE9B00D5-9A9B-40BC-A22E-D8F74BFF1316 - 6841bc2aeca6d76c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Faculty::showStudents()"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Faculty.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "EE9B00D5-9A9B-40BC-A22E-D8F74BFF1316 - 6841bc2aeca6d68d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Faculty::showStudents()"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Faculty.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DBE39B4-29C4-49BB-BA8A-94B50B4D6DBE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "Faculty::attendStudent(firstName, lastName, date)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68EC2709-9D51-4A00-9D36-E7C830586CC2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "Faculty::addStudentToGroup(firstName, lastName, group)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "119344FA-7018-452E-BD54-F5AF1A6B1D8F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Student.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "Student::setGroup(groupName)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "119344FA-7018-452E-BD54-F5AF1A6B1D8F - c441580e2b5660"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Student::setGroup(char const*)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Student.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "119344FA-7018-452E-BD54-F5AF1A6B1D8F - c441580e2b5647"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Student::setGroup(char const*)"
+                  moduleName = "course_work"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/peachyhead/Root/SafeZone/Study/3sem/Program/CourseWork/course_work/course_work/Student.cpp"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88DBBD9B-D52B-4D79-9EB6-1215267C8FF8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "Faculty::showAttendees(date)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28EF7ECC-1FF4-4BA0-BE2B-649D8CC8AD87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "Faculty::showStudents()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D1F2E4E-4021-4B5E-B01B-53CB3F2A491E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "course_work/Faculty.cpp"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "Faculty::showStudents()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

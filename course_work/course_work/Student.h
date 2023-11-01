@@ -16,23 +16,23 @@ using namespace std;
 
 class Student {
 public:
-    string group;
-    string firstName;
-    string lastName;
+
+    char* firstName;
+    char* lastName;
+    char* group;
     
     Student();
-    Student(string firstName, string lastName);
+    Student(char* firstName, char* lastName);
     ~Student();
     
-    void setGroup(string groupName);
+    void setGroup(const char* groupName);
     void attend(Date date);
 
     bool isAttended(Date date);
     bool isEqual(Student student);
-    string showAttendments();
+    char* showAttendments();
     int getAttendances();
-    string getGroup();
-    string toString();
+    char* toString();
 
     bool operator ==(Student* student){
         return isEqual(*student);

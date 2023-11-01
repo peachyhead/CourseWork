@@ -10,7 +10,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <sstream>
 
 using namespace std;
 
@@ -24,7 +23,7 @@ public:
     Date(int month, int day);
     ~Date();
     
-    string toString();
+    char* toString();
     bool isEqual(Date date);
 };
 

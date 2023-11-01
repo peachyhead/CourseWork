@@ -17,10 +17,12 @@ Date::Date(int day, int month) {
     _day = day;
 }
 
-string Date::toString() {
-    stringstream serializedData;
-    serializedData << _day << "/" << _month;
-    return serializedData.str();
+char* Date::toString() {
+    char buffer[12];
+
+    snprintf(buffer, sizeof(buffer), "%d/%d", _day, _month);
+
+    return strdup(buffer);
 }
 
 Date::~Date() {

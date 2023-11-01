@@ -11,9 +11,7 @@
 		4F2409902AD7D88900F9F11C /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F24098F2AD7D88900F9F11C /* Date.cpp */; };
 		4F2409942AD7D8E500F9F11C /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F2409932AD7D8E500F9F11C /* Student.cpp */; };
 		4F3546A42AEFDC79008428A2 /* Faculty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F3546A22AEFDC79008428A2 /* Faculty.cpp */; };
-		4F5EE5352AEE891100829FEE /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EE5332AEE891100829FEE /* Time.cpp */; };
 		4F5EE53A2AEE9B9000829FEE /* MenuRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EE5382AEE9B9000829FEE /* MenuRunner.cpp */; };
-		4F6075B02AF0E4F900EA504F /* Lesson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F6075AE2AF0E4F900EA504F /* Lesson.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,12 +35,8 @@
 		4F2409932AD7D8E500F9F11C /* Student.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Student.cpp; path = course_work/Student.cpp; sourceTree = SOURCE_ROOT; };
 		4F3546A22AEFDC79008428A2 /* Faculty.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Faculty.cpp; sourceTree = "<group>"; };
 		4F3546A32AEFDC79008428A2 /* Faculty.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Faculty.hpp; sourceTree = "<group>"; };
-		4F5EE5332AEE891100829FEE /* Time.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
 		4F5EE5382AEE9B9000829FEE /* MenuRunner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuRunner.cpp; sourceTree = "<group>"; };
 		4F5EE5392AEE9B9000829FEE /* MenuRunner.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuRunner.hpp; sourceTree = "<group>"; };
-		4F6075AB2AF0E10000EA504F /* Time.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
-		4F6075AE2AF0E4F900EA504F /* Lesson.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson.cpp; sourceTree = "<group>"; };
-		4F6075AF2AF0E4F900EA504F /* Lesson.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lesson.hpp; sourceTree = "<group>"; };
 		4FDD7D9C2AE0291D00FB904B /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 		4FDD7D9F2AE029E700FB904B /* List.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +73,6 @@
 			children = (
 				4F5EE5382AEE9B9000829FEE /* MenuRunner.cpp */,
 				4F5EE5392AEE9B9000829FEE /* MenuRunner.hpp */,
-				4F5EE5372AEE9B6600829FEE /* helper */,
 				4FDD7D9A2AE0290400FB904B /* utils */,
 				4F2409822AD7D71900F9F11C /* src */,
 				4F2409792AD7D6FD00F9F11C /* main.cpp */,
@@ -87,9 +80,6 @@
 				4F24098E2AD7D86000F9F11C /* Date.h */,
 				4F3546A22AEFDC79008428A2 /* Faculty.cpp */,
 				4F3546A32AEFDC79008428A2 /* Faculty.hpp */,
-				4F6075AB2AF0E10000EA504F /* Time.h */,
-				4F6075AE2AF0E4F900EA504F /* Lesson.cpp */,
-				4F6075AF2AF0E4F900EA504F /* Lesson.hpp */,
 			);
 			path = course_work;
 			sourceTree = "<group>";
@@ -99,17 +89,9 @@
 			children = (
 				4F24098F2AD7D88900F9F11C /* Date.cpp */,
 				4F2409932AD7D8E500F9F11C /* Student.cpp */,
-				4F5EE5332AEE891100829FEE /* Time.cpp */,
 			);
 			name = src;
 			path = ../../../course_work/src;
-			sourceTree = "<group>";
-		};
-		4F5EE5372AEE9B6600829FEE /* helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = helper;
 			sourceTree = "<group>";
 		};
 		4FDD7D9A2AE0290400FB904B /* utils */ = {
@@ -181,9 +163,7 @@
 				4F24097A2AD7D6FD00F9F11C /* main.cpp in Sources */,
 				4F2409902AD7D88900F9F11C /* Date.cpp in Sources */,
 				4F2409942AD7D8E500F9F11C /* Student.cpp in Sources */,
-				4F6075B02AF0E4F900EA504F /* Lesson.cpp in Sources */,
 				4F5EE53A2AEE9B9000829FEE /* MenuRunner.cpp in Sources */,
-				4F5EE5352AEE891100829FEE /* Time.cpp in Sources */,
 				4F3546A42AEFDC79008428A2 /* Faculty.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

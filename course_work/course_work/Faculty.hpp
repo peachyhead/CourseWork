@@ -19,26 +19,27 @@ using namespace std;
 class Faculty {
 private:
     List<Student> _students;
-    
-    Student* getStudent(string firstName, string lastName);
-    
+
+    Student* getStudent(const char* firstName, const char* lastName);
+
 public:
     Faculty();
     ~Faculty();
-    
+
     void addStudent(Student* student);
-    bool removeStudent(string firstName, string lastName);
-    bool addStudentToGroup(string firstName, string lastName, string group);
-    
-    bool attendStudent(string firstName, string lastName, Date date);
-    void attendGroup(string group, Date date);
-    
-    string showAttendees(Date date);
-    string showStudents();
-    
+    bool removeStudent(const char* firstName, const char* lastName);
+    bool addStudentToGroup(const char* firstName, const char* lastName, const char* group);
+
+    bool attendStudent(char* firstName, char* lastName, Date date);
+    void attendGroup(char* group, Date date);
+
+    void showAttendees(Date date);
+    void showStudents();
+    void showStudent(char* firstName, char* lastName);
+
     void sortAlphabetically();
     void sortByAttendments();
-    
+
     bool isSortedAlphabetically();
     bool isSortedByAttendments();
 };

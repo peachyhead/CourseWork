@@ -10,21 +10,22 @@
 
 #include <stdio.h>
 #include "Date.h"
-#include "Lesson.hpp"
 #include "Student.h"
 #include "utils/List.hpp"
 #include "Faculty.hpp"
 
 class MenuRunner {
 public:
-    
+
     MenuRunner(Faculty* faculty);
     ~MenuRunner();
-    
+
     void run();
 private:
     Faculty* _faculty;
-    
+
+    void clearScreen();
+
     bool subBtn1(char symbol);
     bool subBtn2(char symbol);
     bool subBtn3(char symbol);
@@ -34,7 +35,8 @@ private:
     bool subBtn7(char symbol);
     bool subBtn8(char symbol);
     bool subBtn9(char symbol);
-    string showOptions();
+    bool subBtnExt(char symbol);
+    char* showOptions();
 };
 
 #endif /* MenuRunner_hpp */
