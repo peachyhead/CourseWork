@@ -32,7 +32,7 @@ public:
     bool isEqual(Student student);
     char* showAttendments();
     int getAttendances();
-    char* toString();
+    int toString(char* buffer, size_t size);
 
     bool operator ==(Student* student){
         return isEqual(*student);

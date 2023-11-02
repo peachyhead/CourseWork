@@ -8,33 +8,42 @@
 #include "Student.h"
 
 Student::Student(){
-    group = new char[1];
-    
-    firstName = "Anonymous";
-    lastName = "Anonymous";
-    
+    this->firstName = new char[strlen("Anonymous")];
+    strcpy(this->firstName, "Anonymous");
+    this->lastName = new char[strlen("Anonymous")];
+    strcpy(this->lastName, "Anonymous");
+    group = new char [2];
+    group [0] = '-';
+    group [1] = '\0';
     _attendmentCount = 0;
     _attendments = new Date[_attendmentCount];
 }
 
 Student::Student(char* firstName, char* lastName){
-    group = new char[1];
-    group[0] = '\0';
-    
-    this->firstName = firstName;
-    this->lastName = lastName;
+    this->firstName = new char[strlen(firstName + 1)];
+    strcpy(this->firstName, firstName);
+    this->lastName = new char[strlen(lastName + 1)];
+    strcpy(this->lastName, lastName);
+    group = new char [2];
+    group [0] = '-';
+    group [1] = '\0';
     _attendmentCount = 0;
     _attendments = new Date[_attendmentCount];
 }
 
 Student::~Student(){
-    
+    if (firstName)
+        delete firstName;
+    if (lastName)
+        delete lastName;
+    if (group)
+        delete group;
 }
 
 void Student::attend(Date date) {
     size_t newSize = (_attendmentCount + 1) * sizeof(Date);
 
-    Date* changed = (Date*)malloc(newSize);
+    Date* changed = new Date[newSize];
 
     if (_attendmentCount != 0) {
         memcpy(changed, _attendments, _attendmentCount * sizeof(Date));
@@ -42,7 +51,7 @@ void Student::attend(Date date) {
 
     changed[_attendmentCount] = date;
 
-    free(_attendments);
+    delete [] _attendments;
     _attendments = changed;
     _attendmentCount += 1;
 }
@@ -91,12 +100,8 @@ void Student::setGroup(const char* groupName) {
     group = strdup(groupName);
 }
 
-char* Student::toString() {
-    char buffer[100];
-
-    snprintf(buffer, sizeof(buffer), "%s %s", firstName, lastName);
-
-    return strdup(buffer);
+int Student::toString(char* buffer, size_t bufferSize) {
+    return snprintf(buffer, bufferSize, "%s %s",firstName, lastName);
 }
 
 bool Student::isEqual(Student student) {

@@ -6,7 +6,6 @@
 //
 
 #include "MenuRunner.hpp"
-#include <vector>
 
 MenuRunner::MenuRunner(Faculty* faculty) {
     _faculty = faculty;
@@ -34,6 +33,7 @@ void MenuRunner::run() {
         cout << showOptions();
         cout << "Choose option: ";
         cin >> input;
+        clearScreen();
 
         subBtn1(input);
         subBtn2(input);
@@ -44,6 +44,8 @@ void MenuRunner::run() {
         subBtn7(input);
         subBtn8(input);
         subBtn9(input);
+        
+        cout << endl;
 
     } while (!subBtnExt(input));
 }
@@ -59,7 +61,10 @@ bool MenuRunner::subBtn1(char symbol) {
     Student* student = new Student(firstName, lastName);
     _faculty->addStudent(student);
 
-    cout << "Added student " << student->toString() << "!" << endl;
+    char buf[101];
+    student->toString(buf, 101);
+    
+    cout << "Added student " << buf << "!" << endl;
     return true;
 }
 
