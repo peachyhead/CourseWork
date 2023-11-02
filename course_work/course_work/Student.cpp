@@ -11,7 +11,7 @@ Student::Student(){
     group = new char[1];
     
     firstName = "Anonymous";
-    firstName = "Anonymous";
+    lastName = "Anonymous";
     
     _attendmentCount = 0;
     _attendments = new Date[_attendmentCount];

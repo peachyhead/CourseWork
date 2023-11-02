@@ -25,12 +25,12 @@ void MenuRunner::run() {
 
     _faculty->addStudentToGroup("Gleb", "Ignatev", "AVT-143");
     _faculty->addStudentToGroup("Dmitry", "Svyatash", "AVT-143");
+    _faculty->addStudentToGroup("Alex", "Korchuganov", "AVT-043");
+    _faculty->addStudentToGroup("Dan", "Shaposhnikov", "AVT-043");
 
     char input;
 
     do {
-        clearScreen();
-
         cout << showOptions();
         cout << "Choose option: ";
         cin >> input;
@@ -179,13 +179,29 @@ bool MenuRunner::subBtn8(char symbol) {
 
 bool MenuRunner::subBtn9(char symbol) {
     if (symbol != '9') return false;
-    char firstName[100], lastName[100], date[12];
-    cout << "Enter student name: ";
-    cin >> firstName >> lastName;
     
-    _faculty->showStudent(firstName, lastName);
+    char result;
+    cout << "Press 'i' if you want to get student by an index," << endl <<
+    "either 'n' if you want to find student by a name:" << endl;
+    cin >> result;
     
+    if (result == 'n') {
+        char firstName[100], lastName[100];
+        cout << "Enter student name: ";
+        cin >> firstName >> lastName;
+        
+        _faculty->showStudent(firstName, lastName);
+    }
+    else if (result == 'i') {
+        int index;
+        cout << "Enter student index: ";
+        cin >> index;
+        _faculty->showStudent(index);
+    }
+    else
+        cout << "No matching input! Stepping back to the menu!" << endl;
     return true;
+
 }
 
 bool MenuRunner::subBtnExt(char symbol){
@@ -202,7 +218,7 @@ char* MenuRunner::showOptions() {
         "[6] - Attend group\n"
         "[7] - Show attendees on date\n"
         "[8] - Sort students with option\n"
-        "[9] - Find student by name\n"
+        "[9] - Find student\n"
         "[Q] - Quit\n";
     return strdup(result);
 }

@@ -36,6 +36,7 @@ public:
     void showAttendees(Date date);
     void showStudents();
     void showStudent(char* firstName, char* lastName);
+    void showStudent(int index);
 
     void sortAlphabetically();
     void sortByAttendments();

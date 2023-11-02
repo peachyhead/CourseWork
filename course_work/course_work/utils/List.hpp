@@ -30,28 +30,18 @@ public:
             delete q;
             q = nextNode;
         }
-
     }
 
     void add(T* value);
     void remove(T* value);
     bool isEmpty();
+    int indexOf(T* value);
     void swap(int index1, int index2);
     int getCount();
     Node<T>* getBack();
     
     T& operator[](size_t index) {
-        Node<T>* q;
-        int iter = 0;
-        for (q = getBack(); q != nullptr; q = q->next)
-        {
-            if (iter == index)
-                return *q->data;
-            
-            iter++;
-        }
-        
-        return *q->data;
+        return *elementAt(index)->data;
     }
 
 private:
@@ -59,6 +49,7 @@ private:
     Node<T>* _back;
 
     int _count;
+    Node<T>* elementAt(size_t index);
 };
 
 template <typename T>
@@ -68,11 +59,16 @@ void List<T>::add(T* value) {
     if (!_back) {
         _front = newNode;
         _back = newNode;
+        
+        newNode->next = _front;
+        newNode->prev = _back;
     }
     else {
-        newNode->prev = _front;
-        _front->next = newNode;
-        _front = newNode;
+        newNode->prev = _back;
+        newNode->next = _front;
+        _back->next = newNode;
+        _front->prev = newNode;
+        _back = newNode;
     }
 
     _count++;
@@ -82,21 +78,30 @@ template <typename T>
 void List<T>::remove(T* value) {
 
     Node<T>* q;
-    for (q = _back; q != nullptr; q = q->next)
+    int iter = 0;
+    for (q = _back; iter < _count; q = q->next)
     {
-        if (q->data != value)
+        if (q->data != value) {
+            iter++;
             continue;
-
-        if (q == _back){
-            _back = q->next;
         }
 
-        if (q->next){
+        if (q == _back) {
+            _back = q->prev;
+        }
+
+        if (q->next) {
             q->next->prev = q->prev;
         }
-        if (q->prev){
+        if (q->prev) {
             q->prev->next = q->next;
         }
+        
+        if (_front)
+            _front->prev = _back;
+        
+        _count--;
+        
         break;
     }
 
@@ -110,8 +115,24 @@ void List<T>::remove(T* value) {
 }
 
 template <typename T>
-void List<T>::swap(int index1, int index2) {
+int List<T>::indexOf(T* value) {
+    Node<T>* q;
+    int iter = 0;
+    for (q = _front; iter < _count; q = q->next)
+    {
+        if (q->data != value) {
+            iter++;
+            continue;
+        }
+        
+        return iter;
+    }
+    
+    return iter;
+}
 
+template <typename T>
+void List<T>::swap(int index1, int index2) {
 
     if (index1 < 0 || index2 < 0 ||
         index1 >= _count || index2 >= _count) {
@@ -122,56 +143,25 @@ void List<T>::swap(int index1, int index2) {
         return;
     }
 
-    Node<T> *node1, *node2;
+    Node<T>* node1 = elementAt(index1);
+    Node<T>* node2 = elementAt(index2);
 
-    Node<T>* q;
-    int i = 0;
-    int foundFlag = 0;
-    for (q = _back; q != nullptr; q = q->next){
+    Node<T> temp = *node1;
+    node1->data = node2->data;
+    node2->data = temp.data;
+}
 
-        if (foundFlag == 2)
-            break;
-
-        if (i == index1){
-            node1 = q;
-            foundFlag++;
-        }
-        else if (i == index2){
-            node2 = q;
-            foundFlag++;
-        }
-
-        i++;
+template <typename T>
+Node<T>* List<T>::elementAt(size_t index) {
+    Node<T>* requiredData = nullptr;
+    Node<T>* q = _front;
+    for (int iter = 0; iter < _count; q = q->next, iter++)
+    {
+        if (iter == index)
+            return q;
     }
-
-    if (node1 == _back)
-        _back = node2;
-    else if (node2 == _back)
-        _back = node1;
-    if (node1 == _front)
-        _front = node2;
-    else if (node2 == _front)
-        _front = node1;
-
-    Node<T>* temp = node1->next;
-    node1->next = node2->next;
-    node2->next = temp;
-
-    if (node1->next)
-        node1->next->prev = node1;
-    if (node2->next)
-        node2->next->prev = node2;
-
-    temp = node1->prev;
-    node1->prev = node2->prev;
-    node2->prev = temp;
-
-    if(node1->prev){
-        node1->prev->next = node1;
-    }
-    if (node2->prev){
-        node2->prev->next = node2;
-    }
+    
+    return requiredData;
 }
 
 template <typename T>
