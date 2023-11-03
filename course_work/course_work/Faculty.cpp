@@ -6,7 +6,6 @@
 //
 
 #include <cstring>
-
 #include "Faculty.hpp"
 
 Faculty::Faculty() {
@@ -164,10 +163,8 @@ void Faculty::sortByAttendments() {
                 swapped = true;
             }
         }
-        if (!swapped) {
-            // If no swaps were made during a pass, the list is already sorted
+        if (!swapped)
             break;
-        }
     }
 }
 
