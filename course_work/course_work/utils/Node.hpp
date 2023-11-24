@@ -23,7 +23,7 @@ public:
         data = nullptr;
     }
     
-    Node(T* data){
+    Node(T* data) {
         next = nullptr;
         prev = nullptr;
         this->data = data;
